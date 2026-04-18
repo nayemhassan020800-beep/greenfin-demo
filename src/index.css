@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  transition: all 0.2s ease;
 }
 
 body {
@@ -14,6 +15,7 @@ a {
   color: inherit;
 }
 
+/* INPUT */
 input,
 select {
   width: 100%;
@@ -30,6 +32,7 @@ select:focus {
   border-color: #2e7d32;
 }
 
+/* BUTTON */
 button {
   background: linear-gradient(90deg, #2e7d32, #43a047);
   color: white;
@@ -39,7 +42,6 @@ button {
   font-size: 16px;
   cursor: pointer;
   width: 100%;
-  transition: 0.2s ease;
 }
 
 button:hover {
@@ -47,30 +49,31 @@ button:hover {
   transform: translateY(-1px);
 }
 
+button:active {
+  transform: scale(0.97);
+}
+
+/* LOGIN */
 .page-shell {
   min-height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding: 30px;
+  align-items: center;
 }
 
 .login-layout {
-  display: grid;
-  grid-template-columns: 380px 1fr;
-  gap: 28px;
-  width: 100%;
-  max-width: 1250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .login-card {
+  width: 100%;
+  max-width: 400px;
   background: rgba(255, 255, 255, 0.95);
   border-radius: 28px;
   padding: 40px 32px;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 .brand {
@@ -90,7 +93,6 @@ button:hover {
 .login-title {
   font-size: 24px;
   margin-bottom: 24px;
-  color: #1f2937;
 }
 
 .login-subtext {
@@ -99,152 +101,7 @@ button:hover {
   margin-top: 16px;
 }
 
-.preview-panel {
-  background: linear-gradient(135deg, #0f3d2e, #1f6d45);
-  border-radius: 30px;
-  padding: 26px;
-  color: white;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.16);
-  overflow: hidden;
-}
-
-.topbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 22px;
-}
-
-.topbar-left {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-
-.logo-text {
-  font-size: 34px;
-  font-weight: 700;
-}
-
-.nav-links {
-  display: flex;
-  gap: 18px;
-  font-size: 16px;
-  opacity: 0.95;
-}
-
-.logout-btn {
-  width: auto;
-  padding: 10px 18px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.12);
-}
-
-.dashboard-panel {
-  background: rgba(255, 255, 255, 0.96);
-  border-radius: 24px;
-  padding: 24px;
-  color: #1f2937;
-}
-
-.welcome-title {
-  font-size: 26px;
-  font-weight: 700;
-  margin-bottom: 18px;
-}
-
-.stat-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin-bottom: 20px;
-}
-
-.stat-card {
-  background: linear-gradient(135deg, #2e7d32, #3fa85a);
-  color: white;
-  border-radius: 18px;
-  padding: 18px;
-  min-height: 120px;
-  box-shadow: 0 10px 24px rgba(46, 125, 50, 0.2);
-}
-
-.stat-label {
-  font-size: 14px;
-  opacity: 0.9;
-}
-
-.stat-value {
-  font-size: 34px;
-  font-weight: 700;
-  margin-top: 14px;
-}
-
-.main-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 18px;
-}
-
-.white-card {
-  background: #ffffff;
-  border-radius: 18px;
-  padding: 18px;
-  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.05);
-}
-
-.section-title {
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 14px;
-}
-
-.chart-box {
-  height: 220px;
-  display: flex;
-  align-items: end;
-  gap: 12px;
-  padding-top: 20px;
-}
-
-.bar {
-  flex: 1;
-  background: linear-gradient(180deg, #81c784, #2e7d32);
-  border-radius: 10px 10px 0 0;
-}
-
-.bar-wrap {
-  flex: 1;
-  text-align: center;
-  font-size: 12px;
-  color: #4b5563;
-}
-
-.ai-card {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.ai-highlight {
-  background: linear-gradient(135deg, #1f6d45, #2e7d32);
-  color: white;
-  border-radius: 16px;
-  padding: 18px;
-  font-size: 20px;
-  font-weight: 700;
-}
-
-.ai-list {
-  padding-left: 18px;
-  margin: 0;
-  color: #374151;
-}
-
-.ai-list li {
-  margin-bottom: 10px;
-}
-
+/* DASHBOARD */
 .dashboard-page {
   min-height: 100vh;
   background: linear-gradient(135deg, #dff2e2, #eef9f0);
@@ -261,38 +118,153 @@ button:hover {
   box-shadow: 0 24px 50px rgba(0, 0, 0, 0.15);
 }
 
-.transaction-layout {
-  display: grid;
-  grid-template-columns: 280px 1fr;
+/* TOPBAR */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
   gap: 24px;
-  margin-top: 20px;
 }
 
-.side-card {
-  background: rgba(255, 255, 255, 0.95);
+.nav-links {
+  display: flex;
+  gap: 18px;
+}
+
+/* LOGOUT */
+.logout-btn {
+  width: auto;
+  padding: 10px 18px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* PANEL */
+.dashboard-panel {
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 24px;
+  padding: 24px;
   color: #1f2937;
-  border-radius: 22px;
-  padding: 20px;
 }
 
-.form-card {
-  background: rgba(255, 255, 255, 0.97);
-  color: #1f2937;
-  border-radius: 22px;
-  padding: 26px;
-}
-
-.badge {
-  display: inline-block;
-  background: #e8f5e9;
-  color: #2e7d32;
-  padding: 8px 12px;
-  border-radius: 999px;
-  font-size: 14px;
+.welcome-title {
+  font-size: 26px;
   font-weight: 700;
-  margin-bottom: 14px;
+  margin-bottom: 18px;
 }
 
+/* STATS */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.stat-card {
+  background: linear-gradient(135deg, #2e7d32, #3fa85a);
+  color: white;
+  border-radius: 18px;
+  padding: 18px;
+  min-height: 120px;
+  box-shadow: 0 10px 24px rgba(46, 125, 50, 0.2);
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+}
+
+.stat-value {
+  font-size: 34px;
+  font-weight: 700;
+}
+
+/* GRID */
+.main-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 18px;
+}
+
+/* CARDS */
+.white-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.05);
+}
+
+.white-card:hover {
+  transform: translateY(-3px);
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* CHART */
+.chart-box {
+  height: 220px;
+  display: flex;
+  align-items: end;
+  gap: 12px;
+}
+
+.bar {
+  flex: 1;
+  background: linear-gradient(180deg, #81c784, #2e7d32);
+  border-radius: 10px 10px 0 0;
+}
+
+.bar-wrap {
+  flex: 1;
+  text-align: center;
+  font-size: 12px;
+}
+
+/* AI CARD */
+.ai-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ai-highlight {
+  background: linear-gradient(135deg, #1f6d45, #2e7d32);
+  color: white;
+  border-radius: 16px;
+  padding: 18px;
+  font-size: 20px;
+  font-weight: 700;
+  box-shadow: 0 10px 20px rgba(46, 125, 50, 0.3);
+}
+
+/* CREDIT SCORE BOX */
+.credit-box {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  padding: 12px;
+  border-radius: 12px;
+  margin-top: 12px;
+}
+
+.credit-approved {
+  color: #16a34a;
+  font-weight: 700;
+}
+
+.credit-rejected {
+  color: #dc2626;
+  font-weight: 700;
+}
+
+/* SCORE RING */
 .score-ring {
   width: 180px;
   height: 180px;
@@ -301,7 +273,7 @@ button:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 10px auto 20px;
+  margin: 10px auto;
 }
 
 .score-inner {
@@ -314,78 +286,17 @@ button:hover {
   justify-content: center;
   font-size: 36px;
   font-weight: 700;
-  color: #1f2937;
 }
 
-.muted {
-  color: #6b7280;
-}
-
-.row {
-  display: flex;
-  gap: 12px;
-}
-
-.row > div {
-  flex: 1;
-}
-
+/* RESPONSIVE */
 @media (max-width: 900px) {
-  .login-layout,
-  .transaction-layout,
   .main-grid,
   .stat-grid {
     grid-template-columns: 1fr;
   }
 
-  .topbar,
-  .topbar-left {
+  .topbar {
     flex-direction: column;
     align-items: flex-start;
-  }
-
-  .nav-links {
-    flex-wrap: wrap;
-  }
-}.stat-card:hover {
-  transform: translateY(-4px);
-  transition: 0.3s;
-}
-
-.white-card:hover {
-  transform: translateY(-3px);
-  transition: 0.3s;
-}/* ✅ CENTER LOGIN ONLY (without touching your design) */
-.page-shell {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* ✅ STOP GRID FROM PUSHING CARD LEFT */
-.login-layout {
-  display: flex !important;
-  justify-content: center;
-  align-items: center;
-}
-
-/* ✅ KEEP CARD NICE ON ALL SCREENS */
-.login-card {
-  width: 100%;
-  max-width: 400px;
-}
-
-/* ✅ NAV TEXT NOT CLICKABLE */
-.nav-links span {
-  cursor: default !important;
-  pointer-events: none; /* disables click */
-}
-
-/* ✅ SMALL SCREEN FIX */
-@media (max-width: 600px) {
-  .login-card {
-    margin: 0 10px;
-    padding: 24px;
   }
 }

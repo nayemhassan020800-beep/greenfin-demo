@@ -1,92 +1,89 @@
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function AddTransaction() {
   const navigate = useNavigate();
 
+  const [income, setIncome] = useState("");
+  const [savings, setSavings] = useState("");
+  const [debt, setDebt] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    setLoading(true); // AI processing feel
+
+    setTimeout(() => {
+      const userData = {
+        income: Number(income),
+        savings: Number(savings),
+        debt: Number(debt),
+      };
+
+      localStorage.setItem("userData", JSON.stringify(userData));
+
+      navigate("/dashboard");
+    }, 1000); // 1 second delay for effect
+  };
+
   return (
-    <div className="dashboard-page">
-      <div className="app-shell">
-        <div className="topbar">
-          <div className="topbar-left">
-            <div
-              className="brand"
-              style={{ color: "white", fontSize: "18px", margin: 0 }}
-            >
-              <span className="leaf">🌿</span>
-              <span style={{ fontSize: "18px" }}>GreenFin</span>
-            </div>
-            <div className="nav-links">
-              <span>Dashboard</span>
-              <span>Profile</span>
-              <span>demo</span>
-            </div>
-          </div>
+    <div style={{
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      height: "100vh",
+      background: "#f5f7fa"
+    }}>
+      <div style={{
+        background: "white",
+        padding: "30px",
+        borderRadius: "10px",
+        boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
+        textAlign: "center",
+        width: "300px"
+      }}>
+        <h2>Add Financial Data</h2>
 
-          {/* ✅ FIXED BUTTON */}
+        <form onSubmit={handleSubmit}>
+          <input
+            type="number"
+            placeholder="Income"
+            value={income}
+            onChange={(e) => setIncome(e.target.value)}
+            style={{ width: "100%", padding: "10px", marginBottom: "10px" }}
+          />
+
+          <input
+            type="number"
+            placeholder="Savings"
+            value={savings}
+            onChange={(e) => setSavings(e.target.value)}
+            style={{ width: "100%", padding: "10px", marginBottom: "10px" }}
+          />
+
+          <input
+            type="number"
+            placeholder="Debt"
+            value={debt}
+            onChange={(e) => setDebt(e.target.value)}
+            style={{ width: "100%", padding: "10px", marginBottom: "15px" }}
+          />
+
           <button
-            className="logout-btn"
-            onClick={() => navigate("/")}
+            type="submit"
+            style={{
+              width: "100%",
+              padding: "10px",
+              background: "green",
+              color: "white",
+              border: "none",
+              cursor: "pointer"
+            }}
           >
-            Logout
+            {loading ? "Analyzing..." : "Generate Credit Score"}
           </button>
-        </div>
-
-        <div className="transaction-layout">
-          <div className="side-card">
-            <div className="badge">Dashboard</div>
-            <h2 style={{ marginTop: 0 }}>Add Transaction</h2>
-
-            <label>Type</label>
-            <select>
-              <option>Expense</option>
-              <option>Income</option>
-            </select>
-
-            <label>Category</label>
-            <select>
-              <option>Fuel</option>
-              <option>Electricity</option>
-              <option>Office Supplies</option>
-            </select>
-
-            <label>Date</label>
-            <input type="date" />
-
-            <button>Submit</button>
-          </div>
-
-          <div className="form-card">
-            <div className="badge">Expense Summary</div>
-            <h1 style={{ marginTop: 0 }}>Transaction Insights</h1>
-
-            <div className="row">
-              <div className="white-card">
-                <div className="muted">Selected Category</div>
-                <h2>Fuel</h2>
-                <div className="muted">$125.00 estimated monthly cost</div>
-              </div>
-
-              <div className="white-card">
-                <div className="muted">Carbon Impact</div>
-                <h2>Medium</h2>
-                <div className="muted">12% higher than green target</div>
-              </div>
-            </div>
-
-            <div className="white-card" style={{ marginTop: "18px" }}>
-              <div className="section-title">Sustainability Score</div>
-              <div className="score-ring">
-                <div className="score-inner">78%</div>
-              </div>
-
-              <ul className="ai-list">
-                <li>Switch to renewable energy sources</li>
-                <li>Reduce logistics and fuel costs</li>
-                <li>Increase green investment allocation</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        </form>
       </div>
     </div>
   );
