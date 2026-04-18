@@ -123,10 +123,9 @@ export default function Dashboard() {
                   </h3>
 
                   <p>
-                    {approved
-                      ? "Your financial strength meets the required threshold."
-                      : "Your score is below the required threshold."}
-                  </p>
+  Based on your financial behavior and income stability,
+  our AI model predicts loan eligibility.
+</p>
                 </div>
               )}
 
