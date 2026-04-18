@@ -123,8 +123,9 @@ export default function Dashboard() {
                   </h3>
 
                   <p>
-  Based on your financial behavior and income stability,
-  our AI model predicts loan eligibility.
+  {approved
+    ? "Based on your financial behavior, our AI model predicts low risk and approves the loan."
+    : "Based on your financial behavior, our AI model predicts higher risk, so the loan is rejected."}
 </p>
                 </div>
               )}
