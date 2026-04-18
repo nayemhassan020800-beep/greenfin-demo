@@ -126,11 +126,13 @@ button:hover {
   font-weight: 700;
 }
 
-.nav-links {
-  display: flex;
-  gap: 18px;
-  font-size: 16px;
-  opacity: 0.95;
+.nav-links span {
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.nav-links span:hover {
+  color: #4CAF50;
 }
 
 .logout-btn {

@@ -13,12 +13,19 @@ export default function Dashboard() {
               <span style={{ fontSize: "18px" }}>GreenFin</span>
             </div>
             <div className="nav-links">
-  <span onClick={() => navigate("/dashboard")}>Dashboard</span>
+  <div className="nav-links">
+  <span>Dashboard</span>
   <span>Profile</span>
-  <span onClick={() => navigate("/")}>Logout</span>
+  <span>Demo</span>
+</div>
 </div>
           </div>
-          <button className="logout-btn">Logout</button>
+          <button 
+  className="logout-btn" 
+  onClick={() => navigate("/")}
+>
+  Logout
+</button>
         </div>
 
         <div className="dashboard-panel">
