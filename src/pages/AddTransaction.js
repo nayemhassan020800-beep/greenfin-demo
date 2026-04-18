@@ -1,20 +1,34 @@
+import { useNavigate } from "react-router-dom";
+
 export default function AddTransaction() {
+  const navigate = useNavigate();
+
   return (
     <div className="dashboard-page">
       <div className="app-shell">
         <div className="topbar">
           <div className="topbar-left">
-            <div className="brand" style={{ color: "white", fontSize: "18px", margin: 0 }}>
+            <div
+              className="brand"
+              style={{ color: "white", fontSize: "18px", margin: 0 }}
+            >
               <span className="leaf">🌿</span>
               <span style={{ fontSize: "18px" }}>GreenFin</span>
             </div>
             <div className="nav-links">
               <span>Dashboard</span>
               <span>Profile</span>
-              <span>Logout</span>
+              <span>demo</span>
             </div>
           </div>
-          <button className="logout-btn">Logout</button>
+
+          {/* ✅ FIXED BUTTON */}
+          <button
+            className="logout-btn"
+            onClick={() => navigate("/")}
+          >
+            Logout
+          </button>
         </div>
 
         <div className="transaction-layout">

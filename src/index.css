@@ -126,13 +126,11 @@ button:hover {
   font-weight: 700;
 }
 
-.nav-links span {
-  margin-right: 15px;
-  cursor: pointer;
-}
-
-.nav-links span:hover {
-  color: #4CAF50;
+.nav-links {
+  display: flex;
+  gap: 18px;
+  font-size: 16px;
+  opacity: 0.95;
 }
 
 .logout-btn {
@@ -357,4 +355,37 @@ button:hover {
 .white-card:hover {
   transform: translateY(-3px);
   transition: 0.3s;
+}/* ✅ CENTER LOGIN ONLY (without touching your design) */
+.page-shell {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ✅ STOP GRID FROM PUSHING CARD LEFT */
+.login-layout {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ✅ KEEP CARD NICE ON ALL SCREENS */
+.login-card {
+  width: 100%;
+  max-width: 400px;
+}
+
+/* ✅ NAV TEXT NOT CLICKABLE */
+.nav-links span {
+  cursor: default !important;
+  pointer-events: none; /* disables click */
+}
+
+/* ✅ SMALL SCREEN FIX */
+@media (max-width: 600px) {
+  .login-card {
+    margin: 0 10px;
+    padding: 24px;
+  }
 }
